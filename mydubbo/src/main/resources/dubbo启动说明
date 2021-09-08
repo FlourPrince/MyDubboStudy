@@ -1,0 +1,5 @@
+1.Consumer   获取代理ProxyFactory.getProxy
+2.HttpClient 发送地址 Invocation
+3.MyProvider  提供服务  注册服务
+4.请求发送过来 先到DispatcherServlet   调用handler方法  解析Invocation 反射执行方法
+5.获取返回报文

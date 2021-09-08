@@ -1,0 +1,2 @@
+dubboProtocol = com.dubbo.protocol.dubbo.DubboProtocol
+httpProtocol  = com.dubbo.protocol.http.HttpProtocol

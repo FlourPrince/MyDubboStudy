@@ -1,0 +1,3 @@
+myProtocol =com.dubbo.spi.MyProtocol
+com.dubbo.spi.MyProtocolAware
+
