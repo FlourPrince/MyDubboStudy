@@ -1,31 +1,31 @@
 package com.dubbo.framework;
 
-/**
- * @author pansw
- */
-public class Url  {
+/** @author pansw */
+public class Url {
 
-	private String hostName;
-	private int port;
+  private String hostName;
+  private int port;
 
-	public Url(String hostName, int port) {
-		this.hostName = hostName;
-		this.port = port;
-	}
+  public Url(String hostName, int port) {
+    this.hostName = hostName;
+    this.port = port;
+  }
 
-	public String getHostName() {
-		return hostName;
-	}
+  public Url() {}
 
-	public void setHostName(String hostName) {
-		this.hostName = hostName;
-	}
+  public String getHostName() {
+    return hostName;
+  }
 
-	public int getPort() {
-		return port;
-	}
+  public void setHostName(String hostName) {
+    this.hostName = hostName;
+  }
 
-	public void setPort(int port) {
-		this.port = port;
-	}
+  public int getPort() {
+    return port;
+  }
+
+  public void setPort(int port) {
+    this.port = port;
+  }
 }

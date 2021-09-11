@@ -3,6 +3,7 @@ package com.dubbo.SPI;
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 import com.dubbo.framework.Protocol;
+import com.dubbo.framework.Url;
 import com.dubbo.spi.ProtocolInterface;
 import org.junit.Test;
 
@@ -21,6 +22,8 @@ public class DubboSPI {
     // 4.目标接口添加@SPI注解
     ExtensionLoader<Protocol> extensionLoader = ExtensionLoader.getExtensionLoader(Protocol.class);
     Protocol protocol = extensionLoader.getExtension("dubboProtocol");
+
+    protocol.start(new Url());
   }
 
   @Test
@@ -69,12 +72,13 @@ public class DubboSPI {
     ExtensionLoader<ProtocolInterface> extensionLoader =
         ExtensionLoader.getExtensionLoader(ProtocolInterface.class);
     Map<String, String> map = new HashMap();
-    map.put("activate", "1");
+    map.put("activate", "myProtocol1");
     URL url = new URL("", "", 0, map);
-    String[] values = new String[1];
+    /*    String[] values = new String[2];
     values[0] = "myProtocol";
+    values[1] = "myProtocol1";*/
 
-    List<ProtocolInterface> list = extensionLoader.getActivateExtension(url, values);
+    List<ProtocolInterface> list = extensionLoader.getActivateExtension(url, "activate");
     for (ProtocolInterface protocolInterface : list) {
       protocolInterface.start(url);
     }
