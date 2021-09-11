@@ -43,8 +43,12 @@ public class HttpServer {
 		context.addServletMappingDecoded("/*","dispatcher");
 
 		try {
-			tomcat.start();
-			tomcat.wait();
+			synchronized (tomcat) {
+				tomcat.start();
+				tomcat.wait();
+			}
+
+
 		} catch (LifecycleException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
